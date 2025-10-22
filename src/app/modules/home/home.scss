@@ -1,0 +1,55 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px); // Trừ đi chiều cao của header nếu có
+  background: #eef1f6;
+  padding: 30px;
+}
+
+.home-card {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
+
+.status-content {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+}
+
+.greeting-message {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.action-button {
+  margin: 15px 10px 0 10px;
+  padding: 0 30px;
+  height: 44px;
+  font-size: 16px;
+}
+
+.mt-3 {
+  margin-top: 15px !important;
+  display: block;
+}

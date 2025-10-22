@@ -1,0 +1,42 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f7f6; // Màu nền nhẹ nhàng
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-title {
+  text-align: center;
+  font-weight: 600;
+  color: #3f51b5; // Màu Primary
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-button {
+  margin-top: 20px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.login-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px !important;
+}
+
+.error-message {
+  color: #f44336;
+  text-align: center;
+  margin-top: 10px;
+}

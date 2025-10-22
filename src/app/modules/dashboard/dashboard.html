@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar color="primary">rocket_launch</mat-icon>
+      <mat-card-title>Bảng Điều Khiển Chính</mat-card-title>
+      <mat-card-subtitle>
+        Chào mừng trở lại,
+        <ng-container *ngIf="currentUser$ | async as user; else guest">
+          <span class="user-name">{{ user.fullName }}</span>
+        </ng-container>
+        <ng-template #guest>Người dùng</ng-template>!
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="summary-grid">
+        <mat-card class="widget-card">
+          <mat-card-content class="widget-content">
+            <mat-icon color="accent">group</mat-icon>
+            <h3>Người Dùng</h3>
+            <p>256 Người dùng hoạt động</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="widget-card">
+          <mat-card-content class="widget-content">
+            <mat-icon color="accent">api</mat-icon>
+            <h3>Lượt Gọi API</h3>
+            <p>1,200 Lượt gọi hôm nay</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="widget-card">
+          <mat-card-content class="widget-content">
+            <mat-icon color="accent">security</mat-icon>
+            <h3>Bảo Mật</h3>
+            <p>Cập nhật bảo mật mới nhất</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <p class="mt-4">Đây là khu vực hiển thị các chỉ số, biểu đồ, và thông tin tổng quan quan trọng nhất của hệ thống.</p>
+    </mat-card-content>
+  </mat-card>
+</div>

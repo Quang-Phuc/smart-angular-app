@@ -1,0 +1,53 @@
+<div class="home-container">
+  <mat-card class="home-card">
+    <mat-card-header>
+      <mat-card-title>
+        Chào mừng đến với Hệ thống Smart Angular! 🚀
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="text-center">
+      <p>Đây là trang chủ được xây dựng với các components và services lõi đã được thiết lập.</p>
+
+      <ng-container *ngIf="(isAuthenticated$ | async) as isAuthenticated">
+
+        <div *ngIf="isAuthenticated; else loggedOutContent" class="status-content">
+          <mat-icon color="primary">check_circle</mat-icon>
+          <p class="greeting-message">
+            Xin chào,
+            <span *ngIf="currentUser$ | async as user">{{ user.fullName }}</span>!
+            Bạn đã đăng nhập.
+          </p>
+
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="logout()"
+            class="action-button"
+          >
+            <mat-icon>logout</mat-icon> Đăng Xuất
+          </button>
+
+          <a [routerLink]="['/dashboard']" mat-button color="accent" class="mt-3">
+            Đi đến Dashboard
+          </a>
+        </div>
+
+        <ng-template #loggedOutContent>
+          <div class="status-content">
+            <mat-icon color="warn">account_circle</mat-icon>
+            <p>Bạn chưa đăng nhập. Vui lòng đăng nhập để sử dụng các tính năng.</p>
+
+            <a [routerLink]="['/login']" mat-raised-button color="primary" class="action-button">
+              <mat-icon>login</mat-icon> Đăng Nhập
+            </a>
+            <a [routerLink]="['/register']" mat-button class="mt-3">
+              Đăng Ký
+            </a>
+          </div>
+        </ng-template>
+
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>
