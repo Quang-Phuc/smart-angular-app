@@ -1,15 +1,9 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
-import { HomeComponent } from './modules/home/home'; // ⚠️ Thêm import này
+import { HomeComponent } from './modules/home/home';
 
 export const routes: Routes = [
-  // 1. Route trang chủ (không cần guard)
-  {
-    path: '',
-    component: HomeComponent // Đặt HomeComponent làm trang gốc
-  },
-
-  // 2. Route Đăng nhập/Đăng ký
+  // 1. Route Đăng nhập/Đăng ký
   {
     path: 'login',
     loadComponent: () => import('./modules/auth/login/login').then(m => m.LoginComponent)
@@ -19,18 +13,19 @@ export const routes: Routes = [
     loadComponent: () => import('./modules/auth/register/register').then(m => m.RegisterComponent)
   },
 
-  // 3. Route Layout nội bộ (cần guard)
+  // 2. Route Cần bảo vệ (Dashboard) - Đưa lên trước path: ''
+  {
+    path: 'dashboard',
+    canActivate: [authGuard],
+    loadComponent: () => import('./modules/dashboard/dashboard').then(m => m.DashboardComponent)
+  },
+
+  // 3. Route Trang chủ (Mặc định) - Về cuối cùng
   {
     path: '',
-    // component: MainLayoutComponent, // Thêm LayoutComponent khi bạn đã tạo
-    canActivate: [authGuard],
-    children: [
-      {
-        path: 'dashboard',
-        loadComponent: () => import('./modules/dashboard/dashboard').then(m => m.DashboardComponent)
-      },
-      // ... các route đã đăng nhập khác
-    ]
+    component: HomeComponent
   },
-  { path: '**', redirectTo: '' } // Page Not Found/Redirect về trang chủ
+
+  // 4. Wildcard
+  { path: '**', redirectTo: '' }
 ];
